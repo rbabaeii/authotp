@@ -1,6 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from "@nestjs/typeorm";
+
+
 @Injectable()
 export class TypeormConfig implements TypeOrmOptionsFactory {
     constructor ( private configServise : ConfigService){}
@@ -11,10 +13,11 @@ export class TypeormConfig implements TypeOrmOptionsFactory {
             host : this.configServise.get("Db.host"),
             username : this.configServise.get("Db.username"),
             password : this.configServise.get("Db.password"),
+            database : this.configServise.get("Db.database"),
             synchronize : true ,
             autoLoadEntities : false , 
             entities : [
-                "dist/**/**/**/*.entity."
+                "dist/**/**/**/*.entity.{js,ts}"
             ]
         }
     }

@@ -2,12 +2,20 @@ import { registerAs } from "@nestjs/config";
 
 export enum ConfigKeys {
     App = "App",
-    Db = "Db"
+    Db = "Db" ,
+    JWT = "JWT"
 }
 
 const appConfig = registerAs(ConfigKeys.App , () => ({
     port : 3000
 }))
+
+
+const JwtConfig = registerAs(ConfigKeys.JWT , () => ({
+    accessTokenSecret : "sasdfasfdssdsdffaxlkw",
+    refreshTokenSecret : "sasdfasfdssdsdffasfsd"
+}))
+
 const dbConfig = registerAs(ConfigKeys.Db , () => {
     console.log("Sda")
     
@@ -16,7 +24,7 @@ const dbConfig = registerAs(ConfigKeys.Db , () => {
     host : "localhost" ,
     username : "postgres",
     password : "@Reza0918" ,
-    databasee : "auth-otp"
+    database : "auth-otp"
 }})
 
-export const configuration = [appConfig , dbConfig] 
+export const configuration = [appConfig , dbConfig , JwtConfig] 
