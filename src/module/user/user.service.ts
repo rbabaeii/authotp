@@ -3,7 +3,7 @@ import { CreateDto } from './dto/create-.dto';
 import { UpdateDto } from './dto/update-.dto';
 
 @Injectable()
-export class Service {
+export class UserService {
   create(createDto: CreateDto) {
     return 'This action adds a new ';
   }
@@ -13,13 +13,15 @@ export class Service {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} `;
+    return `This action returns a #f${id} `;
   }
 
   update(id: number, updateDto: UpdateDto) {
-    return `This action updates a #${id} `;
+    return `This action updates a # tttt${id} `;
   }
 
+  
+ 
   remove(id: number) {
     return `This action removes a #${id} `;
   }
